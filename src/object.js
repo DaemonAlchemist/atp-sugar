@@ -22,6 +22,10 @@ export class AtpObject
         return this;
     }
 
+    filter(f) {
+        return this.mergeReduce((item, key, obj) => f(item, key, obj) ? {[key]: item} : {});
+    }
+
     map(m) {
         return this.mergeReduce((item, key) => ({[key]: m(item, key, this.raw)}));
     }
@@ -55,8 +59,13 @@ export class AtpObject
             o({})
         )
     }
+
     switch(actions) {
         return (actions[this.raw] || actions.default || (() => undefined))();
+    }
+
+    values() {
+        return Object.keys(this.raw).reduce((combined, key) => combined.concat([this.raw[key]]), []);
     }
 }
 

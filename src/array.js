@@ -6,6 +6,10 @@ import {AtpObject} from "./object";
 
 export class AtpArray extends AtpObject
 {
+    intersect(other) {
+        return this.raw.filter(item => other.includes(item));
+    }
+
     sortBy(fieldName) {
         return this.raw.sort((a, b) => a[fieldName].localeCompare(b[fieldName]));
     }
