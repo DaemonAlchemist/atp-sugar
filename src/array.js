@@ -6,6 +6,10 @@ import {AtpObject} from "./object";
 
 export class AtpArray extends AtpObject
 {
+    difference(other) {
+        return this.raw.filter(item => !other.includes(item));
+    }
+
     intersect(other) {
         return this.raw.filter(item => other.includes(item));
     }
