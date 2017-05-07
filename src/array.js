@@ -2,7 +2,7 @@
  * Created by awittrock on 4/12/2017.
  */
 
-import {AtpObject} from "./object";
+import {AtpObject, o} from "./object";
 
 export class AtpArray extends AtpObject
 {
@@ -16,6 +16,12 @@ export class AtpArray extends AtpObject
 
     sortBy(fieldName) {
         return this.raw.sort((a, b) => a[fieldName].localeCompare(b[fieldName]));
+    }
+
+    partition(partitionFunc) {
+        return o(this,reduce((partitioned, cur) => o(partitionFunc(cur)).as(key =>
+            Object.assign({}, partitioned, {[key]: partitioned[key] ? partitioned[key].concat(cur) : [cur]})
+        ), {}));
     }
 }
 
