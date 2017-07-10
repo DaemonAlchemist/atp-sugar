@@ -1,5 +1,5 @@
 /**
- * Created by awittrock on 4/12/2017.
+ * Created by Andy on 4/12/2017.
  */
 
 import typeOf from "typeof";

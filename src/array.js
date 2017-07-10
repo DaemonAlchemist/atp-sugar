@@ -1,5 +1,5 @@
 /**
- * Created by awittrock on 4/12/2017.
+ * Created by Andy on 4/12/2017.
  */
 
 import {AtpObject, o} from "./object";
@@ -7,11 +7,11 @@ import {AtpObject, o} from "./object";
 export class AtpArray extends AtpObject
 {
     difference(other) {
-        return this.raw.filter(item => !other.includes(item));
+        return other ? this.raw.filter(item => !other.includes(item)) : [];
     }
 
     intersect(other) {
-        return this.raw.filter(item => other.includes(item));
+        return other ? this.raw.filter(item => other.includes(item)) : [];
     }
 
     sortBy(fieldName) {

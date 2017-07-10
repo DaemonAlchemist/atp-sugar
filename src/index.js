@@ -4,5 +4,6 @@
 
 import {a} from "./array";
 import {o, mergeFlags} from "./object";
+import {collate} from "./collate";
 
-export {o, a, mergeFlags};
+export {o, a, mergeFlags, collate};
