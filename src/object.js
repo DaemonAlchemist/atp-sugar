@@ -26,6 +26,10 @@ export class AtpObject
         return this.mergeReduce((item, key, obj) => f(item, key, obj) ? {[key]: item} : {});
     }
 
+    keys() {
+        return Object.keys(this.raw);
+    }
+
     map(m) {
         return this.mergeReduce((item, key) => ({[key]: m(item, key, this.raw)}));
     }
@@ -65,7 +69,7 @@ export class AtpObject
     }
 
     values() {
-        return Object.keys(this.raw).reduce((combined, key) => combined.concat([this.raw[key]]), []);
+        return Object.values(this.raw);
     }
 }
 
