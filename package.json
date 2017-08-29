@@ -11,5 +11,8 @@
     "url": "git.repo"
   },
   "author": "Andrew Wittrock",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "typeof": "^1.0.0"
+  }
 }

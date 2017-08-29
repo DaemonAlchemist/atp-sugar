@@ -2,8 +2,8 @@
  * Created by Andy on 4/12/2017.
  */
 
-import typeOf from "typeof";
-import flags from "./flag";
+import typeOf from 'typeof';
+import flags from './flag';
 
 export const mergeFlags = flags(["RECURSIVE", "CONCAT_ARRAYS"]);
 
@@ -57,6 +57,13 @@ export class AtpObject
         return o(merged);
     }
 
+    reduce(f, initialValue) {
+        return Object.keys(this.raw).reduce(
+            (combined, key) => f(combined, this.raw[key], key),
+            initialValue
+        );
+    }
+
     mergeReduce(f) {
         return Object.keys(this.raw).reduce(
             (combined, key) => combined.merge(f(this.raw[key], key, this.raw)),
@@ -66,6 +73,12 @@ export class AtpObject
 
     switch(actions) {
         return (actions[this.raw] || actions.default || (() => undefined))();
+    }
+
+    delete(name) {
+        let newObj = Object.assign({}, this.raw);
+        delete newObj[name];
+        return newObj;
     }
 
     values() {

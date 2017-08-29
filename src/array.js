@@ -2,7 +2,7 @@
  * Created by Andy on 4/12/2017.
  */
 
-import {AtpObject, o} from "./object";
+import {AtpObject, o} from './object';
 
 export class AtpArray extends AtpObject
 {
