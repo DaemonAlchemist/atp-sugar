@@ -7,7 +7,10 @@
     "test": "npm run compile && mocha --compilers js:babel-core/register",
     "test-quick": "mocha --compilers js:babel-core/register",
     "compile": "babel --presets es2015 -d lib/ src/",
-    "prepublish": "npm run compile"
+    "prepublish": "npm run compile",
+    "major": "npm version major && git push && git push origin --tags",
+    "minor": "npm version minor && git push && git push origin --tags",
+    "patch": "npm version patch && git push && git push origin --tags"
   },
   "repository": {
     "type": "git",
