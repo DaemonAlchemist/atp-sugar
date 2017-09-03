@@ -40,7 +40,44 @@ describe('ATP-Sugar', () => {
 
             it('should return the value of the callback', () => {
                 assert.equal(o(42).as(num => 10 + num), 52);
-            })
-        })
-    })
-})
+            });
+        });
+        describe("#filter", () => {
+            it('should return only matching elements', () => {
+                assert.deepEqual(
+                    o({foo: 1, bar: 2}).filter(obj => obj ===1).raw,
+                    {foo: 1}
+                );
+            });
+            it('should filter on keys', () => {
+                assert.deepEqual(
+                    o({foo: 1, bar: 2}).filter((obj, key) => key === 'bar').raw,
+                    {bar: 2}
+                );
+            });
+        });
+        describe("#keys", () => {
+            it('should return the keys of an object', () => {
+                assert.deepEqual(
+                    o({foo: 1, bar: 2}).keys(),
+                    ['foo', 'bar']
+                );
+            });
+        });
+        describe("#map", () => {
+            it('should keep key associations', () => {
+               assert.deepEqual(
+                   o({foo: 1, bar: 2}).map(num => num * 2).raw,
+                   {foo: 2, bar: 4}
+               );
+            });
+            it('should be able to use keys in mapper', () => {
+                assert.deepEqual(
+                    o({foo: 1, bar: 2}).map((num, key) => key + ":" + num).raw,
+                    {foo: "foo:1", bar: "bar:2"}
+                );
+            });
+        });
+
+    });
+});
