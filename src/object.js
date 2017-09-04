@@ -58,10 +58,15 @@ export class AtpObject
     }
 
     reduce(f, initialValue) {
-        return Object.keys(this.raw).reduce(
-            (combined, key) => f(combined, this.raw[key], key),
-            initialValue
-        );
+        return typeof initialValue === 'undefined'
+            ? Object.keys(this.raw).slice(1).reduce(
+                (combined, key) => f(combined, this.raw[key], key),
+                this.raw[Object.keys(this.raw)[0]]
+            )
+            : Object.keys(this.raw).reduce(
+                (combined, key) => f(combined, this.raw[key], key),
+                initialValue
+            );
     }
 
     mergeReduce(f) {
