@@ -23,6 +23,10 @@ export class AtpArray extends AtpObject
             Object.assign({}, partitioned, {[key]: partitioned[key] ? partitioned[key].concat(cur) : [cur]})
         ), {}));
     }
+
+    max() {
+        return Math.max(...this.raw);
+    }
 }
 
 export const a = obj => obj instanceof AtpArray ? obj : new AtpArray(obj);
