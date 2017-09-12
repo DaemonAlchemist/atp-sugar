@@ -83,7 +83,7 @@ export class AtpObject
     delete(name) {
         let newObj = Object.assign({}, this.raw);
         delete newObj[name];
-        return newObj;
+        return o(newObj);
     }
 
     values() {
