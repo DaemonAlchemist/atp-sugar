@@ -24,7 +24,7 @@ class DelayedEvent {
     }
 
     milliseconds() {return this;}
-    seconds() {this.runIn(this.delay           * 60 * 1000, false); return this;}
+    seconds() {this.runIn(this.delay                * 1000, false); return this;}
     minutes() {this.runIn(this.delay           * 60 * 1000, false); return this;}
     hours()   {this.runIn(this.delay      * 60 * 60 * 1000, false); return this;}
     days()    {this.runIn(this.delay * 24 * 60 * 60 * 1000, false); return this;}
