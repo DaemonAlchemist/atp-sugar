@@ -42,6 +42,7 @@ describe('ATP-Sugar', () => {
                 assert.equal(o(42).as(num => 10 + num), 52);
             });
         });
+
         describe("#filter", () => {
             it('should return only matching elements', () => {
                 assert.deepEqual(
@@ -56,6 +57,7 @@ describe('ATP-Sugar', () => {
                 );
             });
         });
+
         describe("#keys", () => {
             it('should return the keys of an object', () => {
                 assert.deepEqual(
@@ -63,7 +65,30 @@ describe('ATP-Sugar', () => {
                     ['foo', 'bar']
                 );
             });
+
+            it('should return an empty array for invalid objects', () => {
+                assert.deepEqual(
+                    o(undefined).keys(),
+                    []
+                );
+
+                assert.deepEqual(
+                    o(123).keys(),
+                    []
+                );
+
+                assert.deepEqual(
+                    o("string").keys(),
+                    []
+                );
+
+                assert.deepEqual(
+                    o(true).keys(),
+                    []
+                );
+            });
         });
+
         describe("#map", () => {
             it('should keep key associations', () => {
                assert.deepEqual(
@@ -78,13 +103,14 @@ describe('ATP-Sugar', () => {
                 );
             });
         });
+
         describe("#merge", () => {
-           it('should merge recursively by default', () => {
+            it('should merge recursively by default', () => {
                assert.deepEqual(
                    o({foo: 1, bar: {baz: 2}}).merge({bar: {fizz: 3}}).raw,
                    {foo: 1, bar: {baz: 2, fizz: 3}}
                );
-           });
+            });
 
             it('should concatenate arrays by default', () => {
                 assert.deepEqual(
@@ -107,6 +133,7 @@ describe('ATP-Sugar', () => {
                 );
             });
         });
+
         describe("#reduce", () => {
             it('should work like array.reduce', () => {
                assert.equal(
@@ -121,23 +148,28 @@ describe('ATP-Sugar', () => {
                 );
             })
         });
+
         describe.skip('#mergeReduce', () => {
             //TODO:  mergeReduce tests
             it('should have tests', () => {});
         });
+
         describe.skip('#switch', () => {
             //TODO:  switch tests
             it('should have tests', () => {});
         });
+
         describe.skip('#delete', () => {
             //TODO:  delete tests
             it('should have tests', () => {});
         });
+
         describe.skip('#values', () => {
             //TODO:  values tests
             it('should have tests', () => {});
         });
     });
+
     describe.skip('Array', () => {
         //TODO:  array tests
         it('should have tests', () => {});

@@ -27,7 +27,7 @@ export class AtpObject
     }
 
     keys() {
-        return Object.keys(this.raw);
+        return typeOf(this.raw) === 'object' ? Object.keys(this.raw) : [];
     }
 
     map(m) {
