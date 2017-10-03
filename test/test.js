@@ -50,6 +50,7 @@ describe('ATP-Sugar', () => {
                     {foo: 1}
                 );
             });
+
             it('should filter on keys', () => {
                 assert.deepEqual(
                     o({foo: 1, bar: 2}).filter((obj, key) => key === 'bar').raw,
@@ -96,6 +97,7 @@ describe('ATP-Sugar', () => {
                    {foo: 2, bar: 4}
                );
             });
+
             it('should be able to use keys in mapper', () => {
                 assert.deepEqual(
                     o({foo: 1, bar: 2}).map((num, key) => key + ":" + num).raw,
@@ -141,6 +143,7 @@ describe('ATP-Sugar', () => {
                    10
                );
             });
+
             it('should work without an initial value', () => {
                 assert.equal(
                     o({foo: 1, bar: 2, baz: 3, fizz: 4}).reduce((total, num) => total + num),
@@ -173,5 +176,9 @@ describe('ATP-Sugar', () => {
     describe.skip('Array', () => {
         //TODO:  array tests
         it('should have tests', () => {});
+    });
+
+    describe.skip('Function', () => {
+       it('should have tests', () => {}) ;
     });
 });
