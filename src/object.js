@@ -1,12 +1,12 @@
-/**
- * Created by Andy on 4/12/2017.
- */
-
 import typeOf from 'typeof';
 import flags from './flag';
 
 export const mergeFlags = flags(["RECURSIVE", "CONCAT_ARRAYS"]);
 
+/**
+ * Syntactic sugar functions for Objects
+ *
+ */
 export class AtpObject
 {
     constructor(obj) {
@@ -91,4 +91,8 @@ export class AtpObject
     }
 }
 
+/**
+ * Wrap the given object to make the syntactic sugar functionas available
+ * @param obj
+ */
 export const o = obj => obj instanceof AtpObject ? obj : new AtpObject(obj);

@@ -1,7 +1,3 @@
-/**
- * Created by Andy on 4/6/2017.
- */
-
 const flags = flagNames =>
     (flags => Object.assign({}, flags, {
         matches: (flag, match) =>  (flag & flags[match]) == flags[match]
