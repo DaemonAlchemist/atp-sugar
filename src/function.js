@@ -6,7 +6,7 @@ import {AtpObject, o} from './object';
  * @param {Function} callback - the function to delay
  * @example f(func).delay().for(5).seconds();
  */
-class DelayedEvent {
+export class DelayedEvent {
     constructor(callback) {
         this.callback = callback;
         this.event = null;

@@ -16,7 +16,7 @@
     "major-clean": "npm install && npm run major && rm -rf node_modules",
     "minor-clean": "npm install && npm run minor && rm -rf node_modules",
     "patch-clean": "npm install && npm run patch && rm -rf node_modules",
-    "doc": "documentation build -o doc -f html --theme node_modules/clean-documentation-theme src/index.js"
+    "doc": "documentation build -o doc -f html src/index.js"
   },
   "repository": {
     "type": "git",
