@@ -155,7 +155,7 @@ export class AtpObject
      * @returns {Array}
      */
     values() {
-        return Object.values(this.raw);
+        return this.reduce((values, val) => values.concat(val), []);
     }
 }
 
