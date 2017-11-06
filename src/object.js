@@ -157,6 +157,10 @@ export class AtpObject
     values() {
         return this.reduce((values, val) => values.concat(val), []);
     }
+
+    if(cond, ifTrue, ifFalse) {
+        return cond() ? ifTrue(this.raw) : ifFalse(this.raw);
+    }
 }
 
 /**
