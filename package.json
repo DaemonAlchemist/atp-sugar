@@ -16,7 +16,9 @@
     "major-clean": "npm install && npm run major && rm -rf node_modules",
     "minor-clean": "npm install && npm run minor && rm -rf node_modules",
     "patch-clean": "npm install && npm run patch && rm -rf node_modules",
-    "doc": "documentation build -o doc -f html src/index.js"
+    "doc": "documentation build -o doc -f html src/index.js",
+    "check": "ncu --packageFile package.json",
+    "evergreen": "ncu -ua --packageFile package.json"
   },
   "repository": {
     "type": "git",
