@@ -1,6 +1,6 @@
 {
   "name": "atp-sugar",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "A syntactic sugar module",
   "main": "lib/index.js",
   "scripts": {
