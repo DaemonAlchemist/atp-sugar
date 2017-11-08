@@ -54,7 +54,7 @@ export class AtpArray extends AtpObject
      *  }
      */
     partition(partitionFunc) {
-        return o(this,reduce((partitioned, cur) => o(partitionFunc(cur)).as(key =>
+        return o(this.reduce((partitioned, cur) => o(partitionFunc(cur)).as(key =>
             Object.assign({}, partitioned, {[key]: partitioned[key] ? partitioned[key].concat(cur) : [cur]})
         ), {}));
     }
